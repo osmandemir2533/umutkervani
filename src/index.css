@@ -1,0 +1,505 @@
+@import 'tailwindcss';
+
+:root,
+[data-theme='light'] {
+  --uk-green: #0f4a38;
+  --uk-green-mid: #1a6b52;
+  --uk-green-dark: #0a2f24;
+  --uk-gold: #b8953d;
+  --uk-gold-soft: #e8d5a3;
+  --uk-gold-text: #6b5420;
+  --uk-sand: #f3eee4;
+  --uk-sand-deep: #e8e0d2;
+  --uk-ink: #14241e;
+  --uk-muted: #5a6e66;
+  --uk-danger: #a33b2d;
+  --uk-surface: #fffcf7;
+  --uk-input-bg: #fffcf7;
+  --uk-input-border: #d4ddd7;
+  --uk-nav-bg: rgba(255, 252, 247, 0.96);
+  --uk-header-shadow: rgba(10, 47, 36, 0.25);
+  --uk-card-hover: rgba(15, 74, 56, 0.12);
+
+  --uk-u1-bg: #fecaca;
+  --uk-u1-text: #7f1d1d;
+  --uk-u1-border: #dc2626;
+  --uk-u2-bg: #fed7aa;
+  --uk-u2-text: #9a3412;
+  --uk-u2-border: #ea580c;
+  --uk-u3-bg: #fde68a;
+  --uk-u3-text: #854d0e;
+  --uk-u3-border: #ca8a04;
+  --uk-u4-bg: #bbf7d0;
+  --uk-u4-text: #166534;
+  --uk-u4-border: #16a34a;
+  --uk-u5-bg: #cbd5e1;
+  --uk-u5-text: #334155;
+  --uk-u5-border: #64748b;
+  --uk-u6-bg: #d6d3d1;
+  --uk-u6-text: #44403c;
+  --uk-u6-border: #78716c;
+  --uk-u0-bg: #e9d5ff;
+  --uk-u0-text: #5b21b6;
+  --uk-u0-border: #7c3aed;
+  --uk-u7-bg: #cffafe;
+  --uk-u7-text: #155e75;
+  --uk-u7-border: #0891b2;
+
+  --font-brand: 'El Messiri', 'Georgia', serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-arabic: 'Amiri', 'Times New Roman', serif;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+[data-theme='dark'] {
+  --uk-green: #3aa882;
+  --uk-green-mid: #45b892;
+  --uk-green-dark: #2d8f6f;
+  --uk-gold: #d4b45c;
+  --uk-gold-soft: #3d3420;
+  --uk-gold-text: #e8d5a3;
+  --uk-sand: #121a17;
+  --uk-sand-deep: #1a2420;
+  --uk-ink: #eef5f1;
+  --uk-muted: #a8bdb4;
+  --uk-danger: #f08070;
+  --uk-surface: #1c2823;
+  --uk-input-bg: #15201c;
+  --uk-input-border: #31443b;
+  --uk-nav-bg: rgba(18, 26, 23, 0.97);
+  --uk-header-shadow: rgba(0, 0, 0, 0.45);
+  --uk-card-hover: rgba(58, 168, 130, 0.25);
+
+  --uk-u1-bg: #7f1d1d;
+  --uk-u1-text: #fee2e2;
+  --uk-u1-border: #f87171;
+  --uk-u2-bg: #9a3412;
+  --uk-u2-text: #ffedd5;
+  --uk-u2-border: #fb923c;
+  --uk-u3-bg: #854d0e;
+  --uk-u3-text: #fef3c7;
+  --uk-u3-border: #facc15;
+  --uk-u4-bg: #14532d;
+  --uk-u4-text: #dcfce7;
+  --uk-u4-border: #4ade80;
+  --uk-u5-bg: #334155;
+  --uk-u5-text: #e2e8f0;
+  --uk-u5-border: #94a3b8;
+  --uk-u6-bg: #44403c;
+  --uk-u6-text: #e7e5e4;
+  --uk-u6-border: #a8a29e;
+  --uk-u0-bg: #4c1d95;
+  --uk-u0-text: #ede9fe;
+  --uk-u0-border: #a78bfa;
+  --uk-u7-bg: #164e63;
+  --uk-u7-text: #cffafe;
+  --uk-u7-border: #22d3ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--uk-ink);
+  background-color: var(--uk-sand);
+  background-image:
+    radial-gradient(ellipse 120% 70% at 50% -10%, color-mix(in srgb, var(--uk-green) 16%, transparent) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 40% at 100% 100%, color-mix(in srgb, var(--uk-gold) 10%, transparent) 0%, transparent 50%);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+h1,
+h2,
+h3,
+.font-brand {
+  font-family: var(--font-brand);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: inherit;
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+.uk-input {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--uk-input-border);
+  background: var(--uk-input-bg);
+  color: var(--uk-ink);
+  padding: 0.85rem 1rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.uk-input::placeholder {
+  color: var(--uk-muted);
+  opacity: 0.85;
+}
+
+.uk-input:focus {
+  border-color: var(--uk-green-mid);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--uk-green-mid) 25%, transparent);
+}
+
+.uk-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 1rem;
+  background: linear-gradient(165deg, var(--uk-green-mid), var(--uk-green));
+  color: white;
+  font-weight: 600;
+  padding: 0.9rem 1.25rem;
+  border: none;
+  box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--uk-green) 55%, transparent);
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.uk-btn-primary:hover:not(:disabled) {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -10px color-mix(in srgb, var(--uk-green) 60%, transparent);
+}
+
+.uk-btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.uk-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Detay aksiyonları */
+.uk-btn-pdf,
+.uk-btn-edit,
+.uk-btn-danger,
+.uk-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.uk-btn-pdf {
+  border: 2px solid color-mix(in srgb, var(--uk-green) 35%, transparent);
+  background: var(--uk-surface);
+  color: var(--uk-green);
+  box-shadow: 0 4px 12px -8px color-mix(in srgb, var(--uk-green) 40%, transparent);
+}
+
+.uk-btn-pdf:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--uk-green) 10%, var(--uk-surface));
+  border-color: var(--uk-green-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px -10px color-mix(in srgb, var(--uk-green) 50%, transparent);
+}
+
+.uk-btn-edit {
+  background: var(--uk-green-mid);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--uk-green) 55%, transparent);
+}
+
+.uk-btn-edit:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -10px color-mix(in srgb, var(--uk-green) 60%, transparent);
+}
+
+.uk-btn-danger {
+  background: #c45c4a;
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 16px -8px color-mix(in srgb, #c45c4a 55%, transparent);
+}
+
+.uk-btn-danger:hover:not(:disabled) {
+  filter: brightness(1.07);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -10px color-mix(in srgb, #c45c4a 55%, transparent);
+}
+
+.uk-btn-ghost {
+  border: 1px solid var(--uk-input-border);
+  background: var(--uk-surface);
+  color: var(--uk-ink);
+}
+
+.uk-btn-ghost:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--uk-green) 35%, var(--uk-input-border));
+  background: color-mix(in srgb, var(--uk-green) 6%, var(--uk-surface));
+  transform: translateY(-1px);
+}
+
+.uk-btn-pdf:active:not(:disabled),
+.uk-btn-edit:active,
+.uk-btn-danger:active:not(:disabled),
+.uk-btn-ghost:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.uk-btn-pdf:disabled,
+.uk-btn-danger:disabled,
+.uk-btn-ghost:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.uk-card {
+  border-radius: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--uk-green) 14%, transparent);
+  background: var(--uk-surface);
+  color: var(--uk-ink);
+  box-shadow: 0 10px 30px -18px color-mix(in srgb, var(--uk-ink) 28%, transparent);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/* Liste aciliyet kartı — çok soft pastel ton */
+.uk-urgency-card {
+  border-radius: 1.25rem;
+  border-style: solid;
+  border-width: 1.5px;
+  color: var(--uk-ink);
+  box-shadow: 0 8px 24px -18px color-mix(in srgb, var(--uk-ink) 22%, transparent);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
+}
+
+.uk-urgency-card:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.985);
+}
+
+.uk-urgency-card.uk-u-0 {
+  background: color-mix(in srgb, var(--uk-u0-bg) 48%, var(--uk-surface));
+  border-color: color-mix(in srgb, var(--uk-u0-border) 42%, var(--uk-surface));
+}
+.uk-urgency-card.uk-u-1 {
+  background: color-mix(in srgb, var(--uk-u1-bg) 62%, var(--uk-surface));
+  border-color: color-mix(in srgb, var(--uk-u1-border) 48%, var(--uk-surface));
+}
+.uk-urgency-card.uk-u-2 {
+  background: color-mix(in srgb, var(--uk-u2-bg) 42%, var(--uk-surface));
+  border-color: color-mix(in srgb, var(--uk-u2-border) 32%, var(--uk-surface));
+}
+.uk-urgency-card.uk-u-3 {
+  background: color-mix(in srgb, var(--uk-u3-bg) 45%, var(--uk-surface));
+  border-color: color-mix(in srgb, var(--uk-u3-border) 34%, var(--uk-surface));
+}
+.uk-urgency-card.uk-u-4 {
+  background: color-mix(in srgb, var(--uk-u4-bg) 42%, var(--uk-surface));
+  border-color: color-mix(in srgb, var(--uk-u4-border) 32%, var(--uk-surface));
+}
+.uk-urgency-card.uk-u-5 {
+  background: color-mix(in srgb, var(--uk-u5-bg) 42%, var(--uk-surface));
+  border-color: color-mix(in srgb, var(--uk-u5-border) 32%, var(--uk-surface));
+}
+.uk-urgency-card.uk-u-6 {
+  background: color-mix(in srgb, var(--uk-u6-bg) 42%, var(--uk-surface));
+  border-color: color-mix(in srgb, var(--uk-u6-border) 32%, var(--uk-surface));
+}
+.uk-urgency-card.uk-u-7 {
+  background: color-mix(in srgb, var(--uk-u7-bg) 48%, var(--uk-surface));
+  border-color: color-mix(in srgb, var(--uk-u7-border) 40%, var(--uk-surface));
+}
+
+.uk-card-hover:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--uk-green) 35%, transparent);
+  box-shadow: 0 16px 36px -16px var(--uk-card-hover);
+}
+
+.uk-press {
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+}
+
+.uk-press:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.08);
+}
+
+.uk-press:active {
+  transform: scale(0.97);
+}
+
+.uk-ornament {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--uk-gold) 20%,
+    var(--uk-gold-soft) 50%,
+    var(--uk-gold) 80%,
+    transparent
+  );
+}
+
+/* Mobil alt şerit — ince, ortada yuvarlak, sabit (yalnızca mobil) */
+.uk-mobile-dock {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  bottom: max(0.7rem, var(--safe-bottom));
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .uk-mobile-dock {
+    display: none !important;
+  }
+}
+
+.uk-mobile-dock__pill {
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 0.15rem;
+  width: min(20.5rem, calc(100vw - 2rem));
+  padding: 0.4rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--uk-surface) 88%, var(--uk-sand));
+  border: 1px solid color-mix(in srgb, var(--uk-green) 16%, transparent);
+  box-shadow:
+    0 10px 28px -14px color-mix(in srgb, var(--uk-ink) 42%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--uk-gold) 18%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.uk-mobile-dock__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  min-height: 2.55rem;
+  border-radius: 999px;
+  padding: 0.25rem 0.35rem;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--uk-muted);
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.uk-mobile-dock__btn:hover {
+  color: var(--uk-green);
+  background: color-mix(in srgb, var(--uk-green) 10%, transparent);
+}
+
+.uk-mobile-dock__btn:active {
+  transform: scale(0.92);
+  background: color-mix(in srgb, var(--uk-green) 16%, transparent);
+  color: var(--uk-green);
+}
+
+.uk-mobile-dock__btn.is-active {
+  color: var(--uk-green);
+  background: color-mix(in srgb, var(--uk-green) 12%, transparent);
+}
+
+.uk-mobile-dock__add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  margin-inline: auto;
+  border-radius: 999px;
+  color: white;
+  background: linear-gradient(165deg, var(--uk-green-mid), var(--uk-green));
+  box-shadow: 0 8px 18px -8px color-mix(in srgb, var(--uk-green) 65%, transparent);
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease,
+    box-shadow 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.uk-mobile-dock__add:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px) scale(1.04);
+}
+
+.uk-mobile-dock__add:active {
+  transform: scale(0.9);
+  filter: brightness(0.96);
+  box-shadow: 0 4px 12px -6px color-mix(in srgb, var(--uk-green) 55%, transparent);
+}
+
+@keyframes uk-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.uk-fade-up {
+  animation: uk-fade-up 0.4s ease-out both;
+}
+
+.uk-fade-up-delay {
+  animation: uk-fade-up 0.5s ease-out 0.06s both;
+}
+
+/*
+ * وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ ۖ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ
+ * "İyilik ve takva üzere yardımlaşın; günah ve düşmanlık üzere yardımlaşmayın." (Mâide 5/2)
+ */

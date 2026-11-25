@@ -1,0 +1,30 @@
+# Bağımlılıklar
+node_modules
+
+# Derleme çıktısı
+dist
+dist-ssr
+
+# Ortam değişkenleri (gizli anahtarlar - asla GitHub'a yükleme!)
+.env
+.env.local
+.env.*.local
+
+# Loglar
+logs
+*.log
+npm-debug.log*
+
+# Editör
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite
+*.local
